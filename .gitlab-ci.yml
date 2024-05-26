@@ -23,7 +23,7 @@ build_image:
   script:
     - cd nodejssam && docker build -t jaft/my-node:e .  
     - docker build -t jaft/my-node:e .
-    - docker login -u jaft -p justafool
+    - docker login -u $ -p $
     - docker push jaft/my-node:e
 
 # Define job for deploying (optional)
@@ -35,7 +35,7 @@ deploy:
 #    - echo "$UB_SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add -> /dev/null # add ssh ke 
    #- ssh-add $UB_SSH_PRIVATE_KEY
    #- chmod 600 id_rsa
-    - ssh ubuntu@52.20.110.27 -t  "cd /home/ubuntu && bash d.sh"
+    - ssh $U@$Ser -t  "cd /home/ubuntu && bash d.sh"
 
   only:
     - main  # Only deploy from the main branch (adjust as needed)
